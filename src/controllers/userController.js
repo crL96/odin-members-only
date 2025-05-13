@@ -1,5 +1,12 @@
+const passport = require("../authentication/passport");
 const db = require("../database/queries");
 const { body, validationResult } = require("express-validator");
+
+
+function signInGet(req, res) {
+    res.render("sign-in-form", { errorMessage: req.session.messages });
+    req.session.messages = undefined;
+}
 
 function signUpGet(req, res) {
     res.render("sign-up-form");
@@ -48,5 +55,6 @@ const signUpPost = [
 
 module.exports = {
     signUpGet,
-    signUpPost
+    signUpPost,
+    signInGet
 }

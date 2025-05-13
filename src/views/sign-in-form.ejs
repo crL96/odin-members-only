@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+</head>
+<body>
+    <h1>Sign In</h1>
+    <% if (locals.errorMessage) { %>
+        <p class="errorMessage"><%= errorMessage %></p>
+    <% } %>
+    <form action="/sign-in" method="POST">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" required max="25">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" required max="25">
+        <button type="submit">Sign up</button>
+    </form>
+</body>
+</html>

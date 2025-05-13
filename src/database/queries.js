@@ -6,6 +6,11 @@ async function getUser(username) {
     return rows[0];
 }
 
+async function getUserOnId(id) {
+    const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+    return rows[0];
+}
+
 async function addNewUser(username, fullname, password) {
     const hashedPassword = await bcrypt.hash(password, 10)
 
@@ -18,5 +23,6 @@ async function addNewUser(username, fullname, password) {
 
 module.exports = {
     getUser,
-    addNewUser
+    addNewUser,
+    getUserOnId
 }

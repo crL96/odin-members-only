@@ -1,7 +1,7 @@
 const path = require("node:path");
 const express = require("express");
 const session = require("express-session");
-const passport = require("passport");
+const passport = require("./authentication/passport");
 const indexRouter = require("./routes/indexRoutes");
 require("dotenv").config();
 
@@ -17,6 +17,11 @@ app.set("view engine", "ejs");
 app.use(session({ secret: process.env.SECRET, resave: false, saveUninitialized: false }));
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 
 // Router
 app.use("/", indexRouter);
