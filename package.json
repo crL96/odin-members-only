@@ -1,0 +1,29 @@
+{
+  "name": "odin-members-only",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/crL96/odin-members-only#readme",
+  "bugs": {
+    "url": "https://github.com/crL96/odin-members-only/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crL96/odin-members-only.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.16.0"
+  }
+}
