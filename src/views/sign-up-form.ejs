@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form action="/sign-up" method="POST">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username" required max="25">
+        <label for="fullname">Full name: </label>
+        <input type="text" name="fullname" id="fullname" required max="35">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" required max="25">
+        <label for="confPassword">Confirm password: </label>
+        <input type="password" name="confPassword" id="confPassword" required max="25">
+        <button type="submit">Sign up</button>
+    </form>
+</body>
+</html>
