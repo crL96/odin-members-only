@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Sign Up</h1>
+    <%- include("partials/errors.ejs") %>
     <form action="/sign-up" method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username" id="username" required max="25">
