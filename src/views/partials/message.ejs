@@ -1,8 +1,11 @@
 <div class="message">
   <h3><%= message.title %></h3>
   <p><%= message.message %></p>
-  <p><%= message.time.toString().split("GMT")[0] %></p>
-  <% if (currentUser) { %>
-    <h4><%= message.username %></h4>
+  <% if (currentUser && currentUser.member_status === true) { %>
+    <p class="messageTime"><%= message.time.toString().split("GMT")[0] %></p>
+    <h4 class="username"><%= message.fullname %></h4>
+  <% } else { %>
+    <p class="messageTime hidden"> <em>Some time ago...</em></p>
+    <h4 class="username hidden">USER HIDDEN</h4>
   <% } %>
 </div>
