@@ -38,6 +38,14 @@ async function addNewMessage(userId, title, message) {
     console.log("Added new message to database");
 }
 
+async function deleteMessage(id) {
+    await pool.query(`
+        DELETE FROM messages
+        WHERE id = $1
+        `, [id]);
+    console.log("Deleted message with id: " + id);
+}
+
 async function addMemberStatus(id) {
     await pool.query(`
         UPDATE users
@@ -63,5 +71,6 @@ module.exports = {
     getAllMessages,
     addNewMessage,
     addMemberStatus,
-    addAdminStatus
+    addAdminStatus,
+    deleteMessage
 }

@@ -35,11 +35,18 @@ const newMessagePost = [
         await db.addNewMessage(req.user.id, req.body.title, req.body.message);
         res.redirect("/");
     }
-
 ];
+
+async function deleteMessagePost(req, res) {
+    if (req.user.admin_status) {
+        await db.deleteMessage(req.body.messageId);
+    }
+    res.redirect("/");
+}
 
 module.exports = {
     indexGet,
     newMessageGet,
-    newMessagePost
+    newMessagePost,
+    deleteMessagePost
 }

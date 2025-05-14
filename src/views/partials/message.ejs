@@ -8,4 +8,10 @@
     <p class="messageTime hidden"> <em>Some time ago...</em></p>
     <h4 class="username hidden">USER HIDDEN</h4>
   <% } %>
+  <% if (currentUser && currentUser.admin_status === true) { %>
+    <form action="/delete-message" method="POST">
+      <input type="number" value="<%= message.id %>" name="messageId" id="messageId" hidden aria-hidden="">
+      <button class="deleteBtn" type="submit">Delete message</button>
+    </form>
+  <% } %>
 </div>
