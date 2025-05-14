@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a member</title>
+</head>
+<body>
+    <h1>Become a member</h1>
+    <%- include("partials/errors.ejs") %>
+    <form action="/member" method="POST">
+        <legend>Enter the (not so) secret password to become a member</legend>
+        <legend><em>Pssst: It's "opensesame"</em></legend>
+        <!-- <label for="password">Password: </label> -->
+        <input type="password" name="password" id="password" required max="25">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

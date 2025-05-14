@@ -1,4 +1,4 @@
-const passport = require("../authentication/passport");
+require("dotenv").config();
 const db = require("../database/queries");
 const { body, validationResult } = require("express-validator");
 
@@ -11,6 +11,33 @@ function signInGet(req, res) {
 function signUpGet(req, res) {
     res.render("sign-up-form");
 }
+
+function memberFormGet(req, res) {
+    res.render("member-form");
+}
+
+const validateMember = [
+    body("password").custom(value => {
+        return value === process.env.MEMBERSHIP_PW
+    })
+    .withMessage("Incorrect password, try again")
+]
+
+const memberFormPost = [
+    validateMember,
+
+    async (req, res) => {
+        //Check if validation passed
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).render("member-form", {
+                errors: errors.array(),
+            });
+        }
+        if (req.user) await db.addMemberStatus(req.user.id);
+        res.redirect("/");
+    }
+];
 
 const validateUser = [
     body("username").trim()
@@ -56,5 +83,7 @@ const signUpPost = [
 module.exports = {
     signUpGet,
     signUpPost,
-    signInGet
+    signInGet,
+    memberFormGet,
+    memberFormPost
 }

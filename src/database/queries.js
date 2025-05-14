@@ -38,10 +38,20 @@ async function addNewMessage(userId, title, message) {
     console.log("Added new message to database");
 }
 
+async function addMemberStatus(id) {
+    await pool.query(`
+        UPDATE users
+        SET member_status = TRUE
+        WHERE id = $1
+        `, [id]);
+    console.log("Added membership status to user with id: " + id);
+}
+
 module.exports = {
     getUser,
     addNewUser,
     getUserOnId,
     getAllMessages,
-    addNewMessage
+    addNewMessage,
+    addMemberStatus
 }
