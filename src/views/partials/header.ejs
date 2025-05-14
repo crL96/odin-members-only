@@ -1,0 +1,13 @@
+<header>
+    <a class="headerTitle" aria-label="Go back home" href="/"><strong>Members Only</strong></a>
+    
+    <nav>
+        <% if (locals.currentUser) { %>
+            <a href="/new-message">Send Message</a>
+            <a href="/profile">Profile</a>
+            <a href="/sign-out">Sign Out</a>
+        <% } else { %>
+            <a href="/sign-in">Sign In</a>
+        <% } %>
+    </nav>
+</header>
