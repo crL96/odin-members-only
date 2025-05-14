@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <% if (locals.currentUser) { %>
+        <h2>Your Profile</h2>
+        <div class="profileSummary">
+            <p><strong>Full name: </strong><%= currentUser.fullname %></p>
+            <p><strong>Username: </strong><%= currentUser.username %></p>
+            <% if (currentUser.member_status) { %>
+                <p><strong>Membership status: </strong>Full member</p>
+            <% } else { %>
+                <p><strong>Membership status: </strong>Not a member</p>
+                <a href="/member" aria-label="become a member"><button>Become a member today!</button></a>
+            <% } %>
+        </div>
+    <% } %>
+</body>
+</html>

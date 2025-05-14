@@ -28,4 +28,6 @@ router.post("/delete-message", messageController.deleteMessagePost);
 
 router.get("/sign-out", userController.signOut);
 
+router.get("/profile", (req, res) => res.render("profile"));
+
 module.exports = router;
