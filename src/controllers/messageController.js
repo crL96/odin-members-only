@@ -5,6 +5,11 @@ async function indexGet(req, res) {
     res.render("index", { messages: messages });
 }
 
+function newMessageGet(req, res) {
+    res.render("new-message-form");
+}
+
 module.exports = {
-    indexGet
+    indexGet,
+    newMessageGet
 }

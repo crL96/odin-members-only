@@ -15,4 +15,6 @@ router.post("/sign-in", passport.authenticate("local", {
     failureMessage: true
 }));
 
+router.get("/new-message", messageController.newMessageGet);
+
 module.exports = router;

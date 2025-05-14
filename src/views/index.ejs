@@ -9,6 +9,7 @@
     <h1>Members Only</h1>
     <% if (locals.currentUser) { %>
         <h2>Hello, <%= currentUser.username %></h2>
+        <a href="/new-message">Create a new message</a>
     <% } else { %>
         <h2>Hello, there</h2>
         <a href="/sign-in">Sign in</a>
