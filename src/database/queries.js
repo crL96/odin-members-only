@@ -30,9 +30,18 @@ async function getAllMessages() {
     return rows;
 }
 
+async function addNewMessage(userId, title, message) {
+    await pool.query(`
+        INSERT INTO messages (user_id, title, message)
+        VALUES ($1, $2, $3);
+        `, [userId, title, message]);
+    console.log("Added new message to database");
+}
+
 module.exports = {
     getUser,
     addNewUser,
     getUserOnId,
-    getAllMessages
+    getAllMessages,
+    addNewMessage
 }

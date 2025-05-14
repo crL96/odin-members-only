@@ -16,5 +16,6 @@ router.post("/sign-in", passport.authenticate("local", {
 }));
 
 router.get("/new-message", messageController.newMessageGet);
+router.post("/new-message", messageController.newMessagePost);
 
 module.exports = router;
