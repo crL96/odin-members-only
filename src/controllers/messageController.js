@@ -23,7 +23,7 @@ const newMessagePost = [
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).render("sign-up-form", {
+            return res.status(400).render("new-message-form", {
                 errors: errors.array(),
             });
         }
