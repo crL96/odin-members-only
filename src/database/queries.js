@@ -21,8 +21,18 @@ async function addNewUser(username, fullname, password) {
     console.log("Added new user to database");
 }
 
+async function getAllMessages() {
+    const { rows } = await pool.query(`
+        SELECT messages.id as id, title, message, username, fullname, time
+        FROM messages
+        JOIN users ON user_id = users.id;
+        `);
+    return rows;
+}
+
 module.exports = {
     getUser,
     addNewUser,
-    getUserOnId
+    getUserOnId,
+    getAllMessages
 }

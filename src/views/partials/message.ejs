@@ -1,0 +1,8 @@
+<div class="message">
+  <h3><%= message.title %></h3>
+  <p><%= message.message %></p>
+  <p><%= message.time %></p>
+  <% if (currentUser) { %>
+    <h4><%= message.username %></h4>
+  <% } %>
+</div>

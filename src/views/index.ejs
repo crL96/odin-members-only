@@ -13,5 +13,14 @@
         <h2>Hello, there</h2>
         <a href="/sign-in">Sign in</a>
     <% } %>
+
+    <% if (locals.messages) { %>
+        <div class="messagesContainer">
+            <% messages.forEach(function(message) { %>
+                <%- include("partials/message.ejs", { message: message }) %>
+            <% }); %>
+        </div>
+    <% } %>
+
 </body>
 </html>
