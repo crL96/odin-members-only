@@ -24,6 +24,8 @@ router.post("/member", userController.memberFormPost);
 router.get("/add-admin", userController.adminFormGet);
 router.post("/add-admin", userController.adminFormPost);
 
-router.post("/delete-message", messageController.deleteMessagePost)
+router.post("/delete-message", messageController.deleteMessagePost);
+
+router.get("/sign-out", userController.signOut);
 
 module.exports = router;
