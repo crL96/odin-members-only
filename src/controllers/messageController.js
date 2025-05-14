@@ -11,6 +11,10 @@ const validateMessage = [
         .isLength({ min: 1, max: 30 }).withMessage("Title must be between 1 and 30 characters"),
     body("message").trim()
         .isLength({ min: 1, max: 255 }).withMessage("Title must be between 1 and 255 characters"),
+    body().custom(() => {
+        if (req.user) return true;
+        return false;
+    }).withMessage("Must be signed in to send messages")
 ];
 
 function newMessageGet(req, res) {
