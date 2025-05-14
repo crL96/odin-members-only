@@ -47,11 +47,21 @@ async function addMemberStatus(id) {
     console.log("Added membership status to user with id: " + id);
 }
 
+async function addAdminStatus(id) {
+    await pool.query(`
+        UPDATE users
+        SET admin_status = TRUE
+        WHERE id = $1
+        `, [id]);
+    console.log("Added admin status to user with id: " + id);
+}
+
 module.exports = {
     getUser,
     addNewUser,
     getUserOnId,
     getAllMessages,
     addNewMessage,
-    addMemberStatus
+    addMemberStatus,
+    addAdminStatus
 }

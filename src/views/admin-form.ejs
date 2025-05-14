@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Become an admin</h1>
+    <%- include("partials/errors.ejs") %>
+    <form action="/add-admin" method="POST">
+        <legend>Enter the admin password to become an admin</legend>
+        <input type="password" name="password" id="password" required max="25">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

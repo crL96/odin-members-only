@@ -80,10 +80,39 @@ const signUpPost = [
     }
 ]
 
+function adminFormGet(req, res) {
+    res.render("admin-form");
+}
+
+const validateAdmin = [
+    body("password").custom(value => {
+        return value === process.env.ADMIN_PW
+    })
+    .withMessage("Incorrect password, try again")
+]
+
+const adminFormPost = [
+    validateAdmin,
+
+    async (req, res) => {
+        //Check if validation passed
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).render("admin-form", {
+                errors: errors.array(),
+            });
+        }
+        if (req.user) await db.addAdminStatus(req.user.id);
+        res.redirect("/");
+    }
+];
+
 module.exports = {
     signUpGet,
     signUpPost,
     signInGet,
     memberFormGet,
-    memberFormPost
+    memberFormPost,
+    adminFormGet,
+    adminFormPost
 }
