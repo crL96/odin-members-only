@@ -17,6 +17,8 @@ Clone the repository
 
 Navigate to the project directory: cd odin-members-only
 
+Install packages with: npm install
+
 Setup a PostgreSQL database and add it's credentials to the .env in the next step.
 
 Create a .env file in the project root directory, look at the .env.example for clarification.
