@@ -25,7 +25,8 @@ async function getAllMessages() {
     const { rows } = await pool.query(`
         SELECT messages.id as id, title, message, username, fullname, time
         FROM messages
-        JOIN users ON user_id = users.id;
+        JOIN users ON user_id = users.id
+        ORDER BY time DESC;
         `);
     return rows;
 }
