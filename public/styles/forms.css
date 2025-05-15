@@ -1,0 +1,23 @@
+form {
+    border: 1px solid #f9f9f9;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    min-width: 320px;
+    /* max-width: 70ch; */
+}
+
+form > legend {
+    padding-left: 0;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+form > input,
+form > select,
+form > button {
+    margin-bottom: 0.5rem;
+}

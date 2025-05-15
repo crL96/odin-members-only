@@ -8,6 +8,10 @@ require("dotenv").config();
 
 const app = express();
 
+//Handle static assets
+const assetsPath = path.join(__dirname, "../public");
+app.use(express.static(assetsPath));
+
 // EJS templating
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

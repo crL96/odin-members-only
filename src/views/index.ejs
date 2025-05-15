@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Members Only</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <%- include("partials/header.ejs") %>
-    <% if (locals.currentUser) { %>
-        <h2>Welcome back, <%= currentUser.username %>!</h2>
-    <% } else { %>
-        <h2>Hello, there</h2>
-    <% } %>
-
-    <% if (locals.messages) { %>
-        <div class="messagesContainer">
-            <% messages.forEach(function(message) { %>
-                <%- include("partials/message.ejs", { message: message }) %>
-            <% }); %>
-        </div>
-    <% } %>
+    <main>
+        <% if (locals.currentUser) { %>
+            <h1>Welcome back, <%= currentUser.username %>!</h1>
+        <% } else { %>
+            <h1>Welcome to the members club!</h1>
+            <p>Become a member to unlock all the clubs privileges</p>
+            <p>Registered users are able to send messages,</p>
+            <p>but only users with a membership can see other users identities</p>
+        <% } %>
+        <% if (locals.messages) { %>
+            <div class="messagesContainer">
+                <% messages.forEach(function(message) { %>
+                    <%- include("partials/message.ejs", { message: message }) %>
+                <% }); %>
+            </div>
+        <% } %>
+    </main>
 </body>
 </html>

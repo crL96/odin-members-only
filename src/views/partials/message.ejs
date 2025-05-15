@@ -11,7 +11,7 @@
   <% if (currentUser && currentUser.admin_status === true) { %>
     <form action="/delete-message" method="POST">
       <input type="number" value="<%= message.id %>" name="messageId" id="messageId" hidden aria-hidden="">
-      <button class="deleteBtn" type="submit">Delete message</button>
+      <button class="deleteBtn" type="submit">Delete</button>
     </form>
   <% } %>
 </div>
