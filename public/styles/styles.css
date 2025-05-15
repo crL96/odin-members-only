@@ -145,7 +145,7 @@ header a {
     font-size: 1.5rem;
 }
 
-.message > * {
+.message > *:not(:last-child) {
     margin-bottom: 1rem;
 }
 
@@ -166,31 +166,20 @@ header a {
     right: 1.5rem;
 }
 
-
-/* FORMS */
-/* form {
-    border: 1px solid #f9f9f9;
-    padding: 1rem;
+.profileSummary {
+    border: 1px solid rgba(255, 255, 255, 0.87);
     border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    min-width: 320px;
-    margin-bottom: 1.5rem;
+
+    padding: 1.5rem;
+    margin: 1.5rem;
+    max-width: 100%;
+
+    font-size: 120%;
 }
 
-form > legend {
-    padding-left: 0;
-    font-weight: bold;
-    margin-bottom: 0.8rem;
-    text-align: center;
+.profileSummary > *:not(:last-child) {
+    margin-bottom: 1rem;
 }
-
-form > input,
-form > select,
-form > button {
-    margin-bottom: 0.5rem;
-} */
-
 
 /* MEDIA QUERIES */
 @media (max-width: 800px) {
