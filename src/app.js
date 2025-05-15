@@ -4,6 +4,7 @@ const session = require("express-session");
 const passport = require("./authentication/passport");
 const indexRouter = require("./routes/indexRoutes");
 require("dotenv").config();
+const pool = require("./database/pool");
 
 
 const app = express();
@@ -18,7 +19,17 @@ app.set("view engine", "ejs");
 
 
 // App middleware
-app.use(session({ secret: process.env.SECRET, resave: false, saveUninitialized: false }));
+app.use(session({
+  store: new (require("connect-pg-simple")(session))({
+    pool: pool,
+    createTableIfMissing: true
+  }),
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 } // 7 days
+}));
+
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use((req, res, next) => { // If signed in, store user in currentUser variable so all ejs can access it
